@@ -1,6 +1,6 @@
 # Coding Contributions
 
-A NextJS serverless API to get a user's Github, Hackerrank, and Leetcode contributions. Hosted on [now.sh](https://now.sh/). Faster than Heroku servers.
+A NextJS serverless API to get a user's Github, Hackerrank, and Leetcode contributions. Hosted on [vercel.com](https://vercel.com/). Faster than Heroku servers.
 
 ### Endpoint
 
@@ -9,9 +9,9 @@ https://coding-contributions.vercel.app/api
 ### Example Request
 
 ```sh
-curl https://coding-contributions.vercel.app/api/ethanneff/github
-curl https://coding-contributions.vercel.app/api/ethanneff/leetcode
-curl https://coding-contributions.vercel.app/api/ethanneff/hackerrank
+curl https://coding-contributions.vercel.app/api/github?username=ethanneff
+curl https://coding-contributions.vercel.app/api/leetcode?username=ethanneff
+curl https://coding-contributions.vercel.app/api/hackerrank?username=ethanneff
 ```
 
 ### Example Response
