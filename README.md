@@ -1,15 +1,17 @@
-# Github Contributions JSON API
+# Coding Contributions
 
-A NextJS serverless API to get a user's Github contributions. Hosted on [now.sh](https://now.sh/). Faster than Heroku servers.
+A NextJS serverless API to get a user's Github, Hackerrank, and Leetcode contributions. Hosted on [now.sh](https://now.sh/). Faster than Heroku servers.
 
 ### Endpoint
 
-https://github-contributions-json-api.now.sh/api
+https://coding-contributions.vercel.app/api
 
 ### Example Request
 
 ```sh
-curl https://github-contributions-json-api.now.sh/api?username=gaearon
+curl https://coding-contributions.vercel.app/api/ethanneff/github
+curl https://coding-contributions.vercel.app/api/ethanneff/leetcode
+curl https://coding-contributions.vercel.app/api/ethanneff/hackerrank
 ```
 
 ### Example Response
@@ -389,11 +391,13 @@ curl https://github-contributions-json-api.now.sh/api?username=gaearon
 
 ```sh
 yarn dev
-open http://localhost:3333/api?username=ethanneff
+open http://localhost:3333/
 ```
 
 ### Deploy
 
 ```sh
-now --prod
+yarn build
+yarn start
+open http://localhost:3333/
 ```
