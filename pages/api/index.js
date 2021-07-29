@@ -1,35 +1,16 @@
-import cheerio from "cheerio";
-import axios from "axios";
-
-export default async (req, res) => {
-  res.setHeader("Content-Type", "application/json");
-
-  const activity = {};
-  const username = req.query.id || req.query.username;
-  if (!username) {
-    res.statusCode = 400;
-    res.end(
-      JSON.stringify({
-        error: "missing github username",
-        example:
-          "https://github-contributions-json-api.now.sh/api/?username=gaearon"
-      })
-    );
-  }
-  const url = `https://github.com/${username}`;
-  const github = await axios.get(url, { headers: { Accept: "*/*" } });
-  const $ = cheerio.load(github.data);
-
-  $(".ContributionCalendar-day").each((_, element) => {
-    const item = $(element);
-    const date = item.attr("data-date");
-    const count = Number(item.attr("data-count"));
-    if (date in activity) {
-      activity[date] += count;
-    } else if (date) {
-      activity[date] = count;
-    }
+export default (_, res) => {
+  const env = process.env.NODE_ENV;
+  const dev = env === "development";
+  const baseUrl = dev
+    ? "http://localhost:3333/"
+    : "https://github-contributions-json-api.now.sh/";
+  const username = "ethanneff";
+  res.status(400).json({
+    error: "invalid api access",
+    examples: [
+      `${baseUrl}api/${username}/github`,
+      `${baseUrl}api/${username}/leetcode`,
+      `${baseUrl}api/${username}/hackerrank`,
+    ],
   });
-  res.statusCode = 200;
-  res.end(JSON.stringify(activity));
 };
