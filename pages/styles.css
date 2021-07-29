@@ -1,0 +1,25 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  color: #212121;
+  background-color: #fafafa;
+}
+
+a {
+  text-decoration: none;
+  color: deepskyblue;
+}
+
+body {
+  font-family: "SF Pro Text", "SF Pro Icons", "Helvetica Neue", "Helvetica",
+    "Arial", sans-serif;
+  padding: 2rem;
+  max-width: 680px;
+  margin: 0 auto;
+  justify-content: center;
+}
+
+html {
+  border-top: 0.5rem solid #212121;
+}
