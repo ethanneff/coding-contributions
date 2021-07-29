@@ -25,7 +25,9 @@ curl https://coding-contributions.vercel.app/api/ethanneff/hackerrank
   "2018-12-27": 3,
   "2018-12-28": 24,
   "2018-12-29": 5,
-  "2018-12-30": 0
+  "2018-12-30": 0,
+  "2018-12-31": 11,
+  "2019-01-01": 8
 }
 ```
 
