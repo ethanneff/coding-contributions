@@ -34,7 +34,7 @@ curl https://coding-contributions.vercel.app/api/hackerrank?username=ethanneff
 ### Develop
 
 ```sh
-yarn dev
+yarn local
 open http://localhost:3333/
 ```
 
