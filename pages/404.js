@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-export default () => (
+const NotFound = () => (
   <div>
     <h1>404 | Page Not Found</h1>
     <Link href="/api">
@@ -8,3 +8,5 @@ export default () => (
     </Link>
   </div>
 );
+
+export default NotFound;

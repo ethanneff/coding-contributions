@@ -1,7 +1,7 @@
 import cheerio from "cheerio";
 import axios from "axios";
 
-export default async (req, res) => {
+const Github = async (req, res) => {
   const username = req.url.split("/")[2];
   const url = `https://github.com/${username}`;
   const github = await axios.get(url, { headers: { Accept: "*/*" } });
@@ -19,3 +19,5 @@ export default async (req, res) => {
   });
   res.status(200).json(activity);
 };
+
+export default Github;

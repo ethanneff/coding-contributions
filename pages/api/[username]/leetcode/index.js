@@ -2,7 +2,7 @@ import cheerio from "cheerio";
 import puppeteer from "puppeteer";
 import { format, parse } from "date-fns";
 
-export default async (req, res) => {
+const LeetCode = async (req, res) => {
   const username = req.url.split("/")[2];
   const browser = await puppeteer.launch();
   const page = await browser.newPage();
@@ -22,3 +22,5 @@ export default async (req, res) => {
 
   res.status(200).json(activity);
 };
+
+export default LeetCode;

@@ -1,6 +1,6 @@
 import axios from "axios";
 
-export default async (req, res) => {
+const HackerRank = async (req, res) => {
   const username = req.url.split("/")[2];
   const config = {
     method: "get",
@@ -14,3 +14,5 @@ export default async (req, res) => {
   }, {});
   res.status(200).json(activity);
 };
+
+export default HackerRank;
