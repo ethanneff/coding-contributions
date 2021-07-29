@@ -2,16 +2,6 @@ import cheerio from "cheerio";
 import { format, parse } from "date-fns";
 import { getBrowser } from "../../../../api";
 
-let chrome = { args: [] };
-let puppeteer;
-
-if (process.env.AWS_LAMBDA_FUNCTION_VERSION) {
-  chrome = require("chrome-aws-lambda");
-  puppeteer = require("puppeteer-core");
-} else {
-  puppeteer = require("puppeteer");
-}
-
 const LeetCode = async (req, res) => {
   try {
     const username = req.url.split("/")[2];
