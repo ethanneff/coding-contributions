@@ -1,11 +1,26 @@
 import cheerio from "cheerio";
-import puppeteer from "puppeteer";
 import { format, parse } from "date-fns";
+
+let chrome = { args: [] };
+let puppeteer;
+
+if (process.env.AWS_LAMBDA_FUNCTION_VERSION) {
+  chrome = require("chrome-aws-lambda");
+  puppeteer = require("puppeteer-core");
+} else {
+  puppeteer = require("puppeteer");
+}
 
 const LeetCode = async (req, res) => {
   try {
     const username = req.url.split("/")[2];
-    const browser = await puppeteer.launch();
+    const browser = await puppeteer.launch({
+      args: [...chrome.args, "--hide-scrollbars", "--disable-web-security"],
+      defaultViewport: chrome.defaultViewport,
+      executablePath: await chrome.executablePath,
+      headless: true,
+      ignoreHTTPSErrors: true,
+    });
     const page = await browser.newPage();
     await page.goto(`https://leetcode.com/${username}/`);
     await page.waitForSelector(".ant-card");
