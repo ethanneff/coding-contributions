@@ -394,10 +394,15 @@ yarn dev
 open http://localhost:3333/
 ```
 
-### Deploy
+### Production
 
 ```sh
 yarn build
 yarn start
 open http://localhost:3333/
 ```
+
+### Deploy
+
+Automatically on merge to master
+https://vercel.com/ethanneff/coding-contributions
